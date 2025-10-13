@@ -1,0 +1,13 @@
+version: "2"
+linters:
+  settings:
+    depguard:
+      rules:
+        testonly_fixtures:
+          list-mode: lax
+          files:
+            - "!*_test.go"
+          deny:
+            - pkg: "blog-examples-go/post-fixtures/testing/fixtures"
+              desc: "cannot import `testing` package in production code"
+

@@ -1,0 +1,16 @@
+version: "2"
+linters:
+  enable:
+    - depguard
+  settings:
+    depguard:
+      rules:
+        testing:
+          list-mode: original
+          files:
+            - "!$test"
+            - "!${config-path}/testing/**"
+          deny:
+            - pkg: "blog-examples-go/post-testonly/testing"
+              desc: "cannot import `testing` package in production code"
+
